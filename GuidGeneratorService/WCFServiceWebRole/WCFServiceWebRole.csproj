@@ -104,6 +104,8 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Web.config" />
+    <None Include="Properties\PublishProfiles\guid-generator - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\guid-generator - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
