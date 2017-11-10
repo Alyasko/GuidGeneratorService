@@ -10,12 +10,14 @@ namespace GuidGeneratorClient
     {
         public void Run()
         {
-            Console.WriteLine("Generating new GUID using remote WCF service...");
+            Console.WriteLine("Generating new GUID using remote SOAP service...");
 
-            var generator = new GuidGeneratorProvider();
-            var guid = generator.Generate();
+            using (var generator = new GuidGeneratorProvider())
+            {
+                var guid = generator.Generate();
 
-            Console.WriteLine($"Generated GUID:\n{guid}");
+                Console.WriteLine($"Generated GUID:\n{guid}");
+            }
         }
     }
 }

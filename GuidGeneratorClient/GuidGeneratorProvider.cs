@@ -7,9 +7,9 @@ using GuidGeneratorClient.ServiceReference1;
 
 namespace GuidGeneratorClient
 {
-    public class GuidGeneratorProvider
+    public class GuidGeneratorProvider : IDisposable
     {
-        private IGuidGeneratorService _guidGenerator;
+        private readonly GuidGeneratorServiceClient _guidGenerator;
         public GuidGeneratorProvider()
         {
             _guidGenerator = new GuidGeneratorServiceClient();
@@ -18,6 +18,11 @@ namespace GuidGeneratorClient
         public string Generate()
         {
             return _guidGenerator.Generate();
+        }
+
+        public void Dispose()
+        {
+            _guidGenerator.Close();
         }
     }
 }
